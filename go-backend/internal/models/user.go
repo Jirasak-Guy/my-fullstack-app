@@ -9,7 +9,7 @@ type User struct {
 
 // Global slice 
 var (
-	users []User
+	users = make([]User, 0)
 	mu    sync.Mutex
 )
 
