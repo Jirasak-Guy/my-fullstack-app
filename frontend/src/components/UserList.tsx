@@ -7,14 +7,23 @@ interface UserListProps {
 
 const UserList: React.FC<UserListProps> = ({ users }) => {
   return (
-    <div>
+    <div className="card">
       <h2>Registered Users</h2>
       {users.length === 0 ? (
         <p>No users registered yet.</p>
       ) : (
-        <ul>
+        <ul style={{ listStyle: 'none', padding: 0 }}>
           {users.map((user, index) => (
-            <li key={index}>{user.name}</li>
+            <li
+              key={index}
+              style={{
+                padding: '0.5rem 0',
+                borderBottom: '1px solid var(--border-color)',
+                textAlign: 'left',
+              }}
+            >
+              {user.name}
+            </li>
           ))}
         </ul>
       )}

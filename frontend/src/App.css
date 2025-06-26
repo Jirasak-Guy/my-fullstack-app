@@ -1,42 +1,142 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #1a1a1a;
+  --error-color: #e63946;
+  --card-bg: #f9f9f9;
+  --border-color: #ccc;
+  --font: 'Inter', system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #121212;
+    --text-color: #eaeaea;
+    --card-bg: #1e1e1e;
+    --border-color: #444;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
+  max-width: 720px;
+  width: 100%;
   padding: 2rem;
+  box-sizing: border-box;
+}
+
+.App {
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+h1 {
+  font-size: 2.4rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
+/* Card-style containers (for Form/List) */
 .card {
-  padding: 2em;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
-.read-the-docs {
-  color: #888;
+/* Error message */
+.error {
+  color: var(--error-color);
+  margin-top: 1rem;
 }
+
+/* Generic button styling */
+button {
+  background-color: transparent;
+  border: 1px solid var(--text-color);
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--text-color);
+}
+
+button:hover {
+  background-color: var(--text-color);
+  color: var(--bg-color);
+}
+
+/* Remove unnecessary logo animation/styles */
+.logo,
+.read-the-docs {
+  display: none;
+}
+
+.user-form {
+  text-align: left;
+  padding: 2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.user-form label {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.user-form input {
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  background-color: white;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.user-form input:focus {
+  border-color: black;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.user-form button {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.4rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.user-form button:hover {
+  background-color: #333;
+  transform: translateY(-2px);
+}
+
+.user-form .error {
+  color: var(--error-color);
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
